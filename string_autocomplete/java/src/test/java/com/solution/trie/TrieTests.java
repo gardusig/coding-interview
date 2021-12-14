@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,6 +16,7 @@ import java.util.List;
 public class TrieTests {
 
     private static final String RANDOM_STRING = "a0123AASDBNQKWEJB12BKJABWDKJQH";
+    private static final String INPUT_FILEPATH = "src/test/resources/input.txt";
 
     @Test
     void whenEmptyTrie() throws Exception {
@@ -65,5 +68,33 @@ public class TrieTests {
         }
         assertNotEquals(trie.getWordsWithPrefixMatch("a"), Arrays.asList("ab", "a"));
         assertEquals(trie.getWordsWithPrefixMatch("a"), Arrays.asList("a", "ab"));
+    }
+
+    @Test
+    void whenStressTest() throws Exception {
+        final Trie trie = new Trie();
+        final BufferedReader br = new BufferedReader(new FileReader(INPUT_FILEPATH));
+        String line;
+        while (true) {
+            line = br.readLine();
+            if (line == null) {
+                break;
+            }
+            trie.addWord(line);
+        }
+        final List<String> HIRE_ME = Arrays.asList(
+                "hire",
+                "hireable",
+                "hired",
+                "hireless",
+                "hireling",
+                "hirelings",
+                "hireman",
+                "hiren",
+                "hirer",
+                "hirers",
+                "hires"
+        );
+        assertEquals(trie.getWordsWithPrefixMatch("hire"), HIRE_ME);
     }
 }
