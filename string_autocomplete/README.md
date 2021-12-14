@@ -36,7 +36,7 @@ It takes `O(sum of word lengths)` to construct a Trie.
 
 Each query might take `O(prefix length)` to run. The rest depends on how the output should be structured.
 
-If you want all words explicitly, then it will cost `O(sum of word lengths in the answe)`.
+If you want all words explicitly, then it will cost `O(sum of word lengths in the answer)`.
 
 If you wanted only the amount of words, it would cost only `O(1)`. Maybe with some tricks (considering sorted input) you could keep this complexity while returning the index range of words suggestions, like: [2, 3] (indicating that words from index 2 to index 3 matches the prefix).
 
