@@ -43,3 +43,10 @@ If you wanted only the amount of words, it would cost only `O(1)`. Maybe with so
 ### Memory
 
 The cost is about the size of the input: `O(word suggestions lengths + prefix length)`
+
+
+## Build
+
+```shell
+$ gradle build
+```
