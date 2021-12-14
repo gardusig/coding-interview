@@ -26,11 +26,11 @@ Prefix queries:
 * "z"
   * []
 
-# Solution
+## Solution
 
 One possible solution, with a reasonable time complexity, consists about constructing a [Trie](https://en.wikipedia.org/wiki/Trie) from given word suggestions.
 
-## Time complexity
+### Time complexity
 
 It takes `O(sum of word lengths)` to construct a Trie.
 
@@ -40,6 +40,6 @@ If you want all words explicitly, then it will cost `O(sum of word lengths in th
 
 If you wanted only the amount of words, it would cost only `O(1)`. Maybe with some tricks (considering sorted input) you could keep this complexity while returning the index range of words suggestions, like: [2, 3] (indicating that words from index 2 to index 3 matches the prefix).
 
-## Memory
+### Memory
 
 The cost is about the size of the input: `O(word suggestions lengths + prefix length)`
